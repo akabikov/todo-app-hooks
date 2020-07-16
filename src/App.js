@@ -1,25 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Item from "./Item";
 import NewItemInput from "./NewItemInput";
+import { readStorage, updateStorage } from "./storageHelpers";
 
 import "./App.css";
 
-// const mockTodos = [
-//   {
-//     id: uuidv4(),
-//     text: "test1",
-//     isChecked: false,
-//   },
-//   {
-//     id: uuidv4(),
-//     text: "test2",
-//     isChecked: true,
-//   },
-// ];
-
 function App() {
-  const [items, itemsSet] = useState([]);
+  const [items, itemsSet] = useState(readStorage("items") || []);
+
+  useEffect(() => updateStorage("items", items));
 
   const handlers = {
     add: (text) => {
