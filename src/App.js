@@ -13,6 +13,8 @@ function App() {
 
   const handlers = {
     add: (text) => {
+      if (!text) return;
+
       const newItem = {
         id: uuidv4(),
         text,
