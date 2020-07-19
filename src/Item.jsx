@@ -1,4 +1,14 @@
 import React, { useState } from "react";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Checkbox from "@material-ui/core/Checkbox";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import IconButton from "@material-ui/core/IconButton";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
+import TextField from "@material-ui/core/TextField";
+import SaveIcon from "@material-ui/icons/Save";
 
 function Item(props) {
   const { id, text, isChecked, check, edit, remove } = props;
@@ -31,27 +41,42 @@ function Item(props) {
   };
 
   const editForm = (
-    <form onSubmit={handleEdited}>
-      <input type='text' value={editedText} autoFocus onChange={handleChange} />
-      <button>Save</button>
-    </form>
+    <ListItem>
+      <form onSubmit={handleEdited}>
+        {/* <input
+          type='text'
+          value={editedText}
+          autoFocus
+          onChange={handleChange}
+        />
+        <button>Save</button> */}
+
+        <TextField autoFocus value={editedText} onChange={handleChange} />
+        <IconButton aria-label='save' type='submit'>
+          <SaveIcon />
+        </IconButton>
+      </form>
+    </ListItem>
   );
 
   const item = (
-    <div>
-      <input
-        type='checkbox'
-        id={id}
-        checked={isChecked}
-        onChange={handleCheck}
-      />
-      {text}
-      <button onClick={handleEditMode}>Edit</button>
-      <button onClick={handleRemove}>Del</button>
-    </div>
+    <ListItem dense button onClick={handleCheck}>
+      <ListItemIcon>
+        <Checkbox edge='start' checked={isChecked} />
+      </ListItemIcon>
+      <ListItemText primary={text} />
+      <ListItemSecondaryAction>
+        <IconButton onClick={handleEditMode}>
+          <EditIcon />
+        </IconButton>
+        <IconButton edge='end' onClick={handleRemove}>
+          <DeleteIcon />
+        </IconButton>
+      </ListItemSecondaryAction>
+    </ListItem>
   );
 
-  return <li>{isEditMode ? editForm : item}</li>;
+  return <>{isEditMode ? editForm : item}</>;
 }
 
 export default Item;

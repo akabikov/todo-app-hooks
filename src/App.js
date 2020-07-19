@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Item from "./Item";
 import NewItemInput from "./NewItemInput";
 import { readStorage, updateStorage } from "./storageHelpers";
+import List from "@material-ui/core/List";
 
 import "./App.css";
 
@@ -48,7 +49,7 @@ function App() {
   return (
     <div className='App'>
       <NewItemInput handleAdd={handlers.add} />
-      <ul>{list}</ul>
+      <List dense>{list}</List>
     </div>
   );
 }

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import TextField from "@material-ui/core/TextField";
+import IconButton from "@material-ui/core/IconButton";
+import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 function NewItemInput(props) {
   const [text, textSet] = useState("");
@@ -15,13 +18,10 @@ function NewItemInput(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type='text'
-        placeholder='Add new...'
-        value={text}
-        onChange={handleChange}
-      />
-      <button>Add</button>
+      <TextField label='Add new...' value={text} onChange={handleChange} />
+      <IconButton aria-label='add' type='submit'>
+        <AddCircleIcon />
+      </IconButton>
     </form>
   );
 }
