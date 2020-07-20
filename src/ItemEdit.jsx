@@ -6,7 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import TextField from "@material-ui/core/TextField";
 import SaveIcon from "@material-ui/icons/Save";
 
-function EditForm({ id, text, edit, toggleEditMode }) {
+function ItemEdit({ id, text, edit, toggleEditMode }) {
   const [editedText, handleChange] = useInputState(text);
 
   const handleEdited = (evt) => {
@@ -29,4 +29,4 @@ function EditForm({ id, text, edit, toggleEditMode }) {
   );
 }
 
-export default EditForm;
+export default ItemEdit;

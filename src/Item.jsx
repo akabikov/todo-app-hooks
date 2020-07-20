@@ -1,6 +1,6 @@
 import React from "react";
 import useToggleState from "./hooks/useToggleState";
-import EditForm from "./EditForm";
+import ItemEdit from "./ItemEdit";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -46,7 +46,7 @@ function Item({ id, text, isChecked, check, edit, remove }) {
 
   return (
     <>
-      {isEditMode ? <EditForm {...{ id, text, edit, toggleEditMode }} /> : item}
+      {isEditMode ? <ItemEdit {...{ id, text, edit, toggleEditMode }} /> : item}
     </>
   );
 }
