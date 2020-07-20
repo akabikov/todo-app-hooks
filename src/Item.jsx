@@ -1,6 +1,6 @@
 import React from "react";
-import useInputState from "./hooks/useInputState";
 import useToggleState from "./hooks/useToggleState";
+import EditForm from "./EditForm";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -9,12 +9,9 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
-import TextField from "@material-ui/core/TextField";
-import SaveIcon from "@material-ui/icons/Save";
 
 function Item({ id, text, isChecked, check, edit, remove }) {
-  const [isEditMode, EditModeToggle] = useToggleState();
-  const [editedText, handleChange] = useInputState(text);
+  const [isEditMode, toggleEditMode] = useToggleState();
 
   const handleCheck = (evt) => {
     check(id);
@@ -27,25 +24,8 @@ function Item({ id, text, isChecked, check, edit, remove }) {
 
   const handleEditMode = (evt) => {
     evt.preventDefault();
-    EditModeToggle();
+    toggleEditMode();
   };
-
-  const handleEdited = (evt) => {
-    evt.preventDefault();
-    edit(id, editedText);
-    EditModeToggle();
-  };
-
-  const editForm = (
-    <ListItem>
-      <form onSubmit={handleEdited}>
-        <TextField autoFocus value={editedText} onChange={handleChange} />
-        <IconButton aria-label='save' type='submit'>
-          <SaveIcon />
-        </IconButton>
-      </form>
-    </ListItem>
-  );
 
   const item = (
     <ListItem dense button onClick={handleCheck}>
@@ -64,7 +44,11 @@ function Item({ id, text, isChecked, check, edit, remove }) {
     </ListItem>
   );
 
-  return <>{isEditMode ? editForm : item}</>;
+  return (
+    <>
+      {isEditMode ? <EditForm {...{ id, text, edit, toggleEditMode }} /> : item}
+    </>
+  );
 }
 
 export default Item;
