@@ -1,11 +1,8 @@
-import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { readStorage, updateStorage } from "../storageHelpers";
+import useStorageState from "./useStorageState";
 
 function useItemState() {
-  const [items, itemsSet] = useState(readStorage("items") || []);
-
-  useEffect(() => updateStorage("items", items));
+  const [items, itemsSet] = useStorageState("items", []);
 
   const handlers = {
     add: (text) => {
