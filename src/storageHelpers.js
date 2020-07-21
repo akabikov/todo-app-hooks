@@ -1,5 +1,14 @@
 function readStorage(key) {
-  return JSON.parse(localStorage.getItem(key));
+  let result;
+
+  try {
+    result = JSON.parse(localStorage.getItem(key));
+  } catch (error) {
+    console.error(error.message);
+    throw error;
+  }
+
+  return result;
 }
 
 function updateStorage(key, items) {
