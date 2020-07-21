@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { readStorage, updateStorage } from "../storageHelpers";
+import { readStorage, updateStorage } from "../helpers/storageHelpers";
 
 function useStorageState(key, initVal) {
   const [state, stateSet] = useState(() => {
