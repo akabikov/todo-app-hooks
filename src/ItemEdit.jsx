@@ -17,14 +17,22 @@ function ItemEdit({ id, text, edit, toggleEditMode }) {
   };
 
   return (
-    <ListItem>
-      <form onSubmit={handleEdited}>
-        <TextField autoFocus value={editedText} onChange={handleChange} />
+    <ListItem style={{ height: "4rem" }}>
+      <form
+        onSubmit={handleEdited}
+        style={{ flex: "auto", margin: "0 6rem 0 2rem" }}
+      >
+        <TextField
+          autoFocus
+          fullWidth
+          value={editedText}
+          onChange={handleChange}
+        />
         <ListItemSecondaryAction>
           <IconButton aria-label='save' type='submit'>
             <SaveIcon />
           </IconButton>
-          <IconButton aria-label='close' onClick={toggleEditMode}>
+          <IconButton aria-label='close' edge='end' onClick={toggleEditMode}>
             <CloseIcon />
           </IconButton>
         </ListItemSecondaryAction>

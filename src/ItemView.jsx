@@ -24,11 +24,21 @@ function ItemView({ id, text, isChecked, check, remove, toggleEditMode }) {
   };
 
   return (
-    <ListItem dense button onClick={handleCheck}>
-      <ListItemIcon>
+    <ListItem
+      button
+      onClick={handleCheck}
+      style={{ height: "4rem", paddingRight: "6rem" }}
+    >
+      <ListItemIcon style={{ minWidth: "2rem" }}>
         <Checkbox edge='start' checked={isChecked} />
       </ListItemIcon>
-      <ListItemText primary={text} />
+      <ListItemText
+        primary={text}
+        style={{
+          textDecoration: isChecked ? "line-through" : "none",
+          overflow: "auto",
+        }}
+      />
       <ListItemSecondaryAction>
         <IconButton onClick={handleEditMode}>
           <EditIcon />
