@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import useInputState from "./hooks/useInputState";
-import { ItemsContext } from "./context/items.context";
+import { DispatchContext } from "./context/items.context";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
@@ -9,7 +9,7 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 function NewItemInput() {
   const [text, handleChange, reset] = useInputState("");
-  const { dispatch } = useContext(ItemsContext);
+  const dispatch = useContext(DispatchContext);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();

@@ -5,7 +5,7 @@ import Item from "./Item";
 import List from "@material-ui/core/List";
 
 function ItemList() {
-  const { items } = useContext(ItemsContext);
+  const items = useContext(ItemsContext);
 
   if (!items.length) return null;
 

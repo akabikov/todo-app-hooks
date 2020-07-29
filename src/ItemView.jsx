@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ItemsContext } from "./context/items.context";
+import { DispatchContext } from "./context/items.context";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -10,7 +10,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 function ItemView({ id, text, isChecked, toggleEditMode }) {
-  const { dispatch } = useContext(ItemsContext);
+  const dispatch = useContext(DispatchContext);
 
   const handleCheck = (evt) => {
     dispatch({ type: "check", id });
