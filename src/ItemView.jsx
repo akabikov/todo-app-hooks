@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ItemsContext } from "./context/items.context";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -8,14 +9,16 @@ import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-function ItemView({ id, text, isChecked, check, remove, toggleEditMode }) {
+function ItemView({ id, text, isChecked, toggleEditMode }) {
+  const { handlers } = useContext(ItemsContext);
+
   const handleCheck = (evt) => {
-    check(id);
+    handlers.check(id);
   };
 
   const handleRemove = (evt) => {
     evt.preventDefault();
-    remove(id);
+    handlers.remove(id);
   };
 
   const handleEditMode = (evt) => {

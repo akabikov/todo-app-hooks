@@ -4,15 +4,15 @@ import useToggleState from "./hooks/useToggleState";
 import ItemEdit from "./ItemEdit";
 import ItemView from "./ItemView";
 
-function Item({ id, text, isChecked, check, edit, remove, isLast }) {
+function Item({ id, text, isChecked, isLast }) {
   const [isEditMode, toggleEditMode] = useToggleState();
 
   return (
     <>
       {isEditMode ? (
-        <ItemEdit {...{ id, text, edit, toggleEditMode }} />
+        <ItemEdit {...{ id, text, toggleEditMode }} />
       ) : (
-        <ItemView {...{ id, text, isChecked, check, remove, toggleEditMode }} />
+        <ItemView {...{ id, text, isChecked, toggleEditMode }} />
       )}
       {isLast ? null : <Divider />}
     </>
