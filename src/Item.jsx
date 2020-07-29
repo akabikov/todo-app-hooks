@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Divider from "@material-ui/core/Divider";
 import useToggleState from "./hooks/useToggleState";
 import ItemEdit from "./ItemEdit";
@@ -19,4 +19,4 @@ function Item({ id, text, isChecked, isLast }) {
   );
 }
 
-export default Item;
+export default memo(Item);
