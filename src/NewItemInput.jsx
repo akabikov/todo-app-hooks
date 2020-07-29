@@ -9,11 +9,11 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 
 function NewItemInput() {
   const [text, handleChange, reset] = useInputState("");
-  const { handlers } = useContext(ItemsContext);
+  const { dispatch } = useContext(ItemsContext);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handlers.add(text);
+    dispatch({ type: "add", text });
     reset();
   };
 

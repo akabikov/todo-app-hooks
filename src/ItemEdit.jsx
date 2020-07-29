@@ -11,11 +11,11 @@ import CloseIcon from "@material-ui/icons/Close";
 function ItemEdit({ id, text, edit, toggleEditMode }) {
   const [editedText, handleChange] = useInputState(text);
 
-  const { handlers } = useContext(ItemsContext);
+  const { dispatch } = useContext(ItemsContext);
 
   const handleEdited = (evt) => {
     evt.preventDefault();
-    handlers.edit(id, editedText);
+    dispatch({ type: "edit", id, text: editedText });
     toggleEditMode();
   };
 

@@ -10,15 +10,15 @@ import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 function ItemView({ id, text, isChecked, toggleEditMode }) {
-  const { handlers } = useContext(ItemsContext);
+  const { dispatch } = useContext(ItemsContext);
 
   const handleCheck = (evt) => {
-    handlers.check(id);
+    dispatch({ type: "check", id });
   };
 
   const handleRemove = (evt) => {
     evt.preventDefault();
-    handlers.remove(id);
+    dispatch({ type: "remove", id });
   };
 
   const handleEditMode = (evt) => {

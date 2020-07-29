@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 import { readStorage, updateStorage } from "../helpers/storageHelpers";
+import reducer from "../reducers/item.reducer";
 
 function useStorageState(key, initVal) {
-  const [state, stateSet] = useState(() => {
+  const init = (initVal) => {
     let val;
 
     try {
@@ -12,11 +13,13 @@ function useStorageState(key, initVal) {
     }
 
     return val;
-  });
+  };
+
+  const [state, dispatch] = useReducer(reducer, initVal, init);
 
   useEffect(() => updateStorage(key, state));
 
-  return [state, stateSet];
+  return [state, dispatch];
 }
 
 export default useStorageState;

@@ -1,13 +1,13 @@
 import React, { createContext } from "react";
-import useItemState from "../hooks/useItemState";
+import useStorageState from "../hooks/useStorageState";
 
 export const ItemsContext = createContext();
 
 export function ItemProvider(props) {
-  const itemStuff = useItemState();
+  const [items, dispatch] = useStorageState("items", []);
 
   return (
-    <ItemsContext.Provider value={itemStuff}>
+    <ItemsContext.Provider value={{ items, dispatch }}>
       {props.children}
     </ItemsContext.Provider>
   );
