@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import NewItemInput from "./NewItemInput";
-import ItemList from "./ItemList";
+import NewItemInput from "./components/NewItemInput";
+import ItemList from "./components/ItemList";
 import { ItemProvider } from "./context/items.context";
 
 function App() {

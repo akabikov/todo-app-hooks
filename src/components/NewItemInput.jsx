@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import useInputState from "./hooks/useInputState";
-import { DispatchContext } from "./context/items.context";
+import useInputState from "../hooks/useInputState";
+import { DispatchContext } from "../context/items.context";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";

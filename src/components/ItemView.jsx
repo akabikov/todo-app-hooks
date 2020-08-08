@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DispatchContext } from "./context/items.context";
+import { DispatchContext } from "../context/items.context";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Checkbox from "@material-ui/core/Checkbox";

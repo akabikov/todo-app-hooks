@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import useInputState from "./hooks/useInputState";
-import { DispatchContext } from "./context/items.context";
+import useInputState from "../hooks/useInputState";
+import { DispatchContext } from "../context/items.context";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import IconButton from "@material-ui/core/IconButton";

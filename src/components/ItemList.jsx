@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ItemsContext } from "./context/items.context";
+import { ItemsContext } from "../context/items.context";
 import Paper from "@material-ui/core/Paper";
 import Item from "./Item";
 import List from "@material-ui/core/List";
