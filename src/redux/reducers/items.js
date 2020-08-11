@@ -1,4 +1,4 @@
-import { ADD_ITEM, REMOVE_ITEM, EDIT_ITEM, CHECK_ITEM } from "./actionTypes";
+import { ADD_ITEM, REMOVE_ITEM, EDIT_ITEM, CHECK_ITEM } from "../actionTypes";
 
 const initState = [];
 
