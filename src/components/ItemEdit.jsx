@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import useInputState from "../hooks/useInputState";
-import { DispatchContext } from "../context/items.context";
+import { connect } from "react-redux";
+import { edit } from "../redux/actions";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import IconButton from "@material-ui/core/IconButton";
@@ -11,11 +12,9 @@ import CloseIcon from "@material-ui/icons/Close";
 function ItemEdit({ id, text, edit, toggleEditMode }) {
   const [editedText, handleChange] = useInputState(text);
 
-  const dispatch = useContext(DispatchContext);
-
   const handleEdited = (evt) => {
     evt.preventDefault();
-    dispatch({ type: "edit", id, text: editedText });
+    edit(id, editedText);
     toggleEditMode();
   };
 
@@ -44,4 +43,4 @@ function ItemEdit({ id, text, edit, toggleEditMode }) {
   );
 }
 
-export default ItemEdit;
+export default connect(null, { edit })(ItemEdit);

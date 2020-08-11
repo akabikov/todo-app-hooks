@@ -1,19 +1,19 @@
-import React, { useContext } from "react";
+import React from "react";
 import useInputState from "../hooks/useInputState";
-import { DispatchContext } from "../context/items.context";
+import { connect } from "react-redux";
+import { add } from "../redux/actions";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 
-function NewItemInput() {
+function NewItemInput({ add }) {
   const [text, handleChange, reset] = useInputState("");
-  const dispatch = useContext(DispatchContext);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch({ type: "add", text });
+    add(text);
     reset();
   };
 
@@ -40,4 +40,4 @@ function NewItemInput() {
   );
 }
 
-export default NewItemInput;
+export default connect(null, { add })(NewItemInput);

@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
-import { DispatchContext } from "../context/items.context";
+import React from "react";
+import { connect } from "react-redux";
+import { remove, check } from "../redux/actions";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -9,16 +10,14 @@ import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-function ItemView({ id, text, isChecked, toggleEditMode }) {
-  const dispatch = useContext(DispatchContext);
-
+function ItemView({ id, text, isChecked, toggleEditMode, remove, check }) {
   const handleCheck = (evt) => {
-    dispatch({ type: "check", id });
+    check(id);
   };
 
   const handleRemove = (evt) => {
     evt.preventDefault();
-    dispatch({ type: "remove", id });
+    remove(id);
   };
 
   const handleEditMode = (evt) => {
@@ -54,4 +53,4 @@ function ItemView({ id, text, isChecked, toggleEditMode }) {
   );
 }
 
-export default ItemView;
+export default connect(null, { remove, check })(ItemView);

@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
-import { ItemsContext } from "../context/items.context";
+import React from "react";
+import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import Item from "./Item";
 import List from "@material-ui/core/List";
 
-function ItemList() {
-  const items = useContext(ItemsContext);
-
+function ItemList({ items }) {
   if (!items.length) return null;
 
   const list = items.map((item, i) => (
@@ -20,4 +18,6 @@ function ItemList() {
   );
 }
 
-export default ItemList;
+const mapStateToProps = (state) => state;
+
+export default connect(mapStateToProps)(ItemList);
