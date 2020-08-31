@@ -1,8 +1,12 @@
 import { ADD_ITEM, REMOVE_ITEM, EDIT_ITEM, CHECK_ITEM } from "../actionTypes";
+import { readStorage } from "../../helpers/storageHelpers";
 
-const initState = [];
+const key = "items";
+const initVal = [];
 
-export default function (state = initState, action) {
+const initState = () => readStorage(key, initVal);
+
+export default function (state = initState(), action) {
   const { type, payload } = action;
   const { id, text, isChecked } = payload || {};
 
