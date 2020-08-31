@@ -1,11 +1,10 @@
-function readStorage(key) {
+function readStorage(key, initVal = []) {
   let result;
 
   try {
-    result = JSON.parse(localStorage.getItem(key));
+    result = JSON.parse(localStorage.getItem(key)) || initVal;
   } catch (error) {
-    console.error(error.message);
-    throw error;
+    result = initVal;
   }
 
   return result;
