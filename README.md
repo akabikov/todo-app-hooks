@@ -2,6 +2,9 @@
 
 > Todo App - List, Add, Remove Todos
 
+![Demo screenshot (desktop)](/../screenshots/desktop.png?raw=true)
+![Demo screenshot (mobile)](/../screenshots/mobile.png?raw=true)
+
 ## Table of contents
 
 - [General info](#general-info)
