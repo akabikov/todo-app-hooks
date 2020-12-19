@@ -2,8 +2,10 @@
 
 > Todo App - List, Add, Remove Todos
 
-![Demo screenshot (desktop)](/../screenshots/desktop.png?raw=true)
-![Demo screenshot (mobile)](/../screenshots/mobile.png?raw=true)
+<div>
+  <img src="/../screenshots/desktop.png?raw=true" height="434" alt="Demo screenshot (desktop)" />
+  <img src="/../screenshots/mobile.png?raw=true" height="434" alt="Demo screenshot (mobile)" />
+</div>
 
 ## Table of contents
 
